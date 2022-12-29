@@ -23,7 +23,7 @@ export const useAnimation = () => {
 
   const startMovingPosition = (
     initPosition: number,
-    duration: number = 300,
+    duration: number = 300
   ) => {
     position.setValue(initPosition);
 

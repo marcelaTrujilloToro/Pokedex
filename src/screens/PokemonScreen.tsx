@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {RootStackParams} from '../navigator/navigator';
+import {RootStackParams} from '../navigator/Tab1';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FadeInImage} from '../components/FadeInImage';
 import {usePokemon} from '../hooks/usePokemon';
@@ -24,7 +24,6 @@ export const PokemonScreen = ({navigation, route}: Props) => {
   const {top} = useSafeAreaInsets();
 
   const {pokemon, isLoading} = usePokemon(simplePokemon.id);
-  console.log(pokemon);
 
   return (
     <View style={{flex: 1}}>
@@ -33,11 +32,13 @@ export const PokemonScreen = ({navigation, route}: Props) => {
         style={{
           ...styles.headerContainer,
           backgroundColor: color,
-        }}>
+        }}
+      >
         <TouchableOpacity
           onPress={() => navigation.pop()}
           activeOpacity={0.8}
-          style={{...styles.backButton, top: top + 5}}>
+          style={{...styles.backButton, top: top + 5}}
+        >
           <Icon name="arrow-back-outline" color="white" size={40} />
         </TouchableOpacity>
 
@@ -47,7 +48,8 @@ export const PokemonScreen = ({navigation, route}: Props) => {
             ...styles.pokemonName,
             top: top + 45,
             textTransform: 'capitalize',
-          }}>
+          }}
+        >
           {simplePokemon.name + '\n'} #{simplePokemon.id}
         </Text>
 
